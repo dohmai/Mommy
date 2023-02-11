@@ -6,8 +6,6 @@ Made By dohmai
 ```lua
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/AlexR32/Parvus/main/Loader.lua"))()
 ```
-### Version 11
-
 ### Supported Games
 - [Bad Business](https://www.roblox.com/games/3233893879/)
 - [Blackhawk Rescue Mission 5](https://www.roblox.com/games/2916899287/)
