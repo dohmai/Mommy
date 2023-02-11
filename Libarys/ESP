@@ -356,14 +356,14 @@ function ESP:Add(obj, options)
 		Color = box.Color,
 		Center = true,
 		Outline = true,
-        Size = 13,
+        Size = 16,
         Visible = self.Enabled and self.Names
 	})
 	box.Components["Items"] = Draw("Text", {
 	    Color = box.Color,
 	    Center = true,
 	    Outline = true,
-	    Size = 13,
+	    Size = 16,
 	    Visible = self.Enabled and self.Items
 	})
 	box.Components["Health"] = Draw("Line", {
@@ -380,7 +380,7 @@ function ESP:Add(obj, options)
 		Color = box.Color,
 		Center = true,
 		Outline = true,
-        Size = 13,
+        Size = 16,
         Visible = self.Enabled and self.Names
 	})
 	
