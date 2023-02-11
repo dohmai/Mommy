@@ -4,8 +4,7 @@ Made By dohmai
 
 **Mommy is still in beta stage of development so expect some bugs or lack of features.**  
 
-$${\color{red}Ass}$$	
-
+$\color[rgb]{1,0,255} hello$
 
 ### Loadstring
 ```lua
