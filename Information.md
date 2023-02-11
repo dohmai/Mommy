@@ -4,7 +4,7 @@ Made By dohmai
 
 **Mommy is still in beta stage of development so expect some bugs or lack of features.**  
 
-$\color[rgb]{1,0,1} hello$
+$\color[rgb]{1,0,0} **Mommy is still in beta stage of development so expect some bugs or lack of features.**  $
 
 ### Loadstring
 ```lua
