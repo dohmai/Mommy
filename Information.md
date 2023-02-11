@@ -2,10 +2,7 @@
 Free Roblox Script Designed For Random Games
 Made By dohmai
 
-### Version
-**Mommy is still in beta stage of development so expect some bugs or lack of features.**  
-
-
+### Version 11
 
 ### Loadstring
 ```lua
