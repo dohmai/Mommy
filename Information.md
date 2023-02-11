@@ -4,13 +4,13 @@ Made By dohmai
 
 **Mommy is still in beta stage of development so expect some bugs or lack of features.**  
 
-```diff
+diff
 - text in red
 + text in green
 ! text in orange
 # text in gray
 @@ text in purple (and bold)@@
-```
+
 
 
 ### Loadstring
