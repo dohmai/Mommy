@@ -261,7 +261,7 @@ Credits:Label("Myself - Emotional Support")
 -- // =Information================================================ // --
 local Information = S:Section{Name = "Information", Side = "Right"}
 
-Information:Label("Game - Blank")
+Information:Label("Game - Universal")
 local Uptime = Information:Label("Timer - 00:00:00")
 -- // ============================================================ // --
 while task.wait(1) do
