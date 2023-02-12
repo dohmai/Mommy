@@ -224,13 +224,31 @@ Blacklist = {Enum.UserInputType.MouseButton1, Enum.UserInputType.MouseButton2, E
 end}
 
 Main:Button{
-Name = "Join Discord",
+Name = "Copy Discord",
     Callback  = function()
+    setclipboard("https://discord.com/invite/XWQ8U8Qr5B")
 end}
 
 Main:Button{
 Name = "Join Discord",
     Callback  = function()
+syn.request(
+   {
+       Url = "http://127.0.0.1:6463/rpc?v=1",
+       Method = "POST",
+       Headers = {
+           ["Content-Type"] = "application/json",
+           ["origin"] = "https://discord.com",
+       },
+       Body = game:GetService("HttpService"):JSONEncode(
+           {
+               ["args"] = {
+                   ["code"] = "XWQ8U8Qr5B",
+               },
+               ["cmd"] = "INVITE_BROWSER",
+               ["nonce"] = "."
+           })
+   })
 end}
 
 Main:Button{
@@ -261,7 +279,7 @@ Credits:Label("Myself - Emotional Support")
 -- // =Information================================================ // --
 local Information = S:Section{Name = "Information", Side = "Right"}
 
-Information:Label("Game - Blank")
+Information:Label("Game - Baseplate")
 local Uptime = Information:Label("Timer - 00:00:00")
 -- // ============================================================ // --
 while task.wait(1) do
