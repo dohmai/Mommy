@@ -23,7 +23,7 @@ local S = main:Tab("Setting")
 -- // =Section C================================================== // --
 local Tab1 = C:Section{Name = "Tab 1", Side = "Left"}
 
-local piss = Tab1:Label("Universal")
+local piss = Tab1:Label("Blank")
 
 local Tab2 = C:Section{Name = "Tab 2", Side = "Right"}
 -- // ============================================================ // --
@@ -224,13 +224,31 @@ Blacklist = {Enum.UserInputType.MouseButton1, Enum.UserInputType.MouseButton2, E
 end}
 
 Main:Button{
-Name = "Join Discord",
+Name = "Copy Discord",
     Callback  = function()
+    setclipboard("https://discord.com/invite/XWQ8U8Qr5B")
 end}
 
 Main:Button{
 Name = "Join Discord",
     Callback  = function()
+syn.request(
+   {
+       Url = "http://127.0.0.1:6463/rpc?v=1",
+       Method = "POST",
+       Headers = {
+           ["Content-Type"] = "application/json",
+           ["origin"] = "https://discord.com",
+       },
+       Body = game:GetService("HttpService"):JSONEncode(
+           {
+               ["args"] = {
+                   ["code"] = "XWQ8U8Qr5B",
+               },
+               ["cmd"] = "INVITE_BROWSER",
+               ["nonce"] = "."
+           })
+   })
 end}
 
 Main:Button{
