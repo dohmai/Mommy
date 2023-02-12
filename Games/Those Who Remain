@@ -1,1 +1,269 @@
+-- // ============================================================ // --
+if Mommy == true then error("Mommy Has Already Been Executed\n Please Unload To Execute It Again",0) return end
+pcall(function() getgenv().Mommy  = true end)
+-- // ============================================================ // --
+if not game:IsLoaded() then game.Loaded:Wait() end
+-- // ============================================================ // --
+-- // =Variables================================================== // --
+local startTime = os.time()
 
+-- // ============================================================ // --
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/dohmai/Mommy/main/Libraries/UI"))()
+-- // ============================================================ // --
+-- // =Window===================================================== // --
+local main = library:Load{Name = " Mommy", SizeX = 495, SizeY = 620, Theme = "Default", Extension = "json", Folder = "NiggaHood"}
+-- // ============================================================ // --
+-- // =Sections=================================================== // --
+local C = main:Tab("Combat")
+local V = main:Tab("Visual")
+local P = main:Tab("Player")
+local T = main:Tab("Misc")
+local S = main:Tab("Setting")
+-- // ============================================================ // --
+-- // =Section C================================================== // --
+local Tab1 = C:Section{Name = "Tab 1", Side = "Left"}
+
+local piss = Tab1:Label("Those Who Remain")
+
+local Tab2 = C:Section{Name = "Tab 2", Side = "Right"}
+-- // ============================================================ // --
+-- // =Section V================================================== // --
+local Tab1 = V:Section{Name = "Tab 1", Side = "Left"}
+local Tab2 = V:Section{Name = "Tab 2", Side = "Right"}
+-- // ============================================================ // --
+-- // =Section P================================================== // --
+local Tab1 = P:Section{Name = "Tab 1", Side = "Left"}
+local Tab2 = P:Section{Name = "Tab 2", Side = "Right"}
+-- // ============================================================ // --
+-- // =Section T================================================== // --
+local Tab1 = T:Section{Name = "Tab 1", Side = "Left"}
+local Tab2 = T:Section{Name = "Tab 2", Side = "Right"}
+-- // ============================================================ // --
+-- // =Theme====================================================== // -- // --
+local Theme = S:Section{Name = "Theme", Side = "Left"}
+
+local themepickers = {}
+
+local themelist = Theme:Dropdown{
+Name = "Selection", Default = library.currenttheme, Content = library:GetThemes(), Flag = "Theme Dropdown",
+    Callback = function(option)
+        if option then
+            library:SetTheme(option)
+            for option, picker in next, themepickers do
+                picker:Set(library.theme[option])
+        end
+    end
+end}
+
+library:ConfigIgnore("Theme Dropdown")
+
+local namebox = Theme:Box{
+Name = "Custom Theme Name", Placeholder = "Custom Theme", Flag = "Custom Theme"
+}
+
+library:ConfigIgnore("Custom Theme")
+
+Theme:Button{
+Name = "Save Custom Theme",
+    Callback = function()
+        if library:SaveCustomTheme(library.flags["Custom Theme"]) then
+            themelist:Refresh(library:GetThemes())
+            themelist:Set(library.flags["Custom Theme"])
+            namebox:Set("")
+    end
+end}
+-- // ============================================================ // --
+-- // =Custom Theme=============================================== // --
+local CustomTheme = S:Section{Name = "Custom Theme", Side = "Right"}
+
+themepickers["Accent"] = CustomTheme:ColorPicker{
+Name = "Accent", Default = library.theme["Accent"], Flag = "Accent",
+    Callback = function(color)
+        library:ChangeThemeOption("Accent", color)
+end}
+
+library:ConfigIgnore("Accent")
+
+themepickers["Window Background"] = CustomTheme:ColorPicker{
+Name = "Window Background", Default = library.theme["Window Background"], Flag = "Window Background",
+    Callback = function(color)
+        library:ChangeThemeOption("Window Background", color)
+end}
+
+library:ConfigIgnore("Window Background")
+
+themepickers["Window Border"] = CustomTheme:ColorPicker{
+Name = "Window Border", Default = library.theme["Window Border"], Flag = "Window Border",
+    Callback = function(color)
+        library:ChangeThemeOption("Window Border", color)
+end}
+
+library:ConfigIgnore("Window Border")
+
+themepickers["Tab Background"] = CustomTheme:ColorPicker{
+Name = "Tab Background", Default = library.theme["Tab Background"], Flag = "Tab Background",
+    Callback = function(color)
+        library:ChangeThemeOption("Tab Background", color)
+end}
+
+library:ConfigIgnore("Tab Background")
+
+themepickers["Tab Border"] = CustomTheme:ColorPicker{
+Name = "Tab Border", Default = library.theme["Tab Border"], Flag = "Tab Border",
+    Callback = function(color)
+        library:ChangeThemeOption("Tab Border", color)
+end}
+
+library:ConfigIgnore("Tab Border")
+
+themepickers["Tab Toggle Background"] = CustomTheme:ColorPicker{
+Name = "Tab Toggle Background", Default = library.theme["Tab Toggle Background"], Flag = "Tab Toggle Background",
+    Callback = function(color)
+        library:ChangeThemeOption("Tab Toggle Background", color)
+end}
+
+library:ConfigIgnore("Tab Toggle Background")
+
+themepickers["Section Background"] = CustomTheme:ColorPicker{
+Name = "Section Background", Default = library.theme["Section Background"], Flag = "Section Background",
+    Callback = function(color)
+        library:ChangeThemeOption("Section Background", color)
+end}
+
+library:ConfigIgnore("Section Background")
+
+themepickers["Section Border"] = CustomTheme:ColorPicker{
+Name = "Section Border", Default = library.theme["Section Border"], Flag = "Section Border",
+    Callback = function(color)
+        library:ChangeThemeOption("Section Border", color)
+end}
+
+library:ConfigIgnore("Section Border")
+
+themepickers["Text"] = CustomTheme:ColorPicker{
+Name = "Text", Default = library.theme["Text"], Flag = "Text",
+    Callback = function(color)
+        library:ChangeThemeOption("Text", color)
+end}
+
+library:ConfigIgnore("Text")
+
+themepickers["Disabled Text"] = CustomTheme:ColorPicker{
+Name = "Disabled Text", Default = library.theme["Disabled Text"], Flag = "Disabled Text",
+    Callback = function(color)
+        library:ChangeThemeOption("Disabled Text", color)
+end}
+
+library:ConfigIgnore("Disabled Text")
+
+themepickers["Object Background"] = CustomTheme:ColorPicker{
+Name = "Object Background", Default = library.theme["Object Background"], Flag = "Object Background",
+    Callback = function(color)
+        library:ChangeThemeOption("Object Background", color)
+end}
+
+library:ConfigIgnore("Object Background")
+
+themepickers["Object Border"] = CustomTheme:ColorPicker{
+Name = "Object Border", Default = library.theme["Object Border"], Flag = "Object Border",
+    Callback = function(color)
+        library:ChangeThemeOption("Object Border", color)
+end}
+
+library:ConfigIgnore("Object Border")
+
+themepickers["Dropdown Option Background"] = CustomTheme:ColorPicker{
+Name = "Dropdown Option Background", Default = library.theme["Dropdown Option Background"], Flag = "Dropdown Option Background",
+    Callback = function(color)
+        library:ChangeThemeOption("Dropdown Option Background", color)
+end}
+
+library:ConfigIgnore("Dropdown Option Background")
+-- // ============================================================ // --
+-- // =Config===================================================== // --
+local Config = S:Section{Name = "Config", Side = "Left"}
+
+local configlist = Config:Dropdown{
+Name = "Selection", Content = library:GetConfigs(), Flag = "Config Dropdown"}
+
+library:ConfigIgnore("Config Dropdown")
+
+local loadconfig = Config:Button{
+Name = "Load Config",
+    Callback = function()
+        library:LoadConfig(library.flags["Config Dropdown"])
+end}
+
+local delconfig = Config:Button{
+Name = "Delete Config",
+    Callback = function()
+        library:DeleteConfig(library.flags["Config Dropdown"]) configlist:Refresh(library:GetConfigs())
+end}
+
+
+local configbox = Config:Box{
+Name = "Config Name", Placeholder = "Config Name", Flag = "Config Name"
+}
+
+library:ConfigIgnore("Config Name")
+
+local save = Config:Button{
+Name = "Save Config",
+    Callback = function()
+        library:SaveConfig(library.flags["Config Dropdown"] or library.flags["Config Name"]) configlist:Refresh(library:GetConfigs())
+end}
+
+local Main = S:Section{Name = "Main", Side = "Left"}
+
+Main:Keybind{
+Name = "Show/Hide UI", Flag = "UI Toggle", Default = Enum.KeyCode.Z,
+Blacklist = {Enum.UserInputType.MouseButton1, Enum.UserInputType.MouseButton2, Enum.UserInputType.MouseButton3},
+    Callback = function(_, fromsetting)
+        if not fromsetting then
+        library:Close() end
+end}
+
+Main:Button{
+Name = "Join Discord",
+    Callback  = function()
+end}
+
+Main:Button{
+Name = "Join Discord",
+    Callback  = function()
+end}
+
+Main:Button{
+Name = "Rejoin Server",
+    Callback  = function()
+        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
+end}
+
+Main:Button{
+Name = "Rejoin Game",
+    Callback  = function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId)
+end}
+
+Main:Button{
+Name = "Unload",
+    Callback  = function()
+        library:Unload() getgenv().Mommy  = false
+end}
+-- // ============================================================ // --
+-- // =Credits==================================================== // --
+local Credits = S:Section{Name = "Credits", Side = "Right"}
+
+Credits:Label("Myself - Everything")
+Credits:Label("Myself - My Buddy")
+Credits:Label("Myself - Emotional Support")
+-- // ============================================================ // --
+-- // =Information================================================ // --
+local Information = S:Section{Name = "Information", Side = "Right"}
+
+Information:Label("Game - Blank")
+local Uptime = Information:Label("Timer - 00:00:00")
+-- // ============================================================ // --
+while task.wait(1) do
+Uptime:Set ("Timer - "..os.date("!%X", os.time() - startTime))
+end
