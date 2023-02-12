@@ -23,7 +23,7 @@ local S = main:Tab("Setting")
 -- // =Section C================================================== // --
 local Tab1 = C:Section{Name = "Tab 1", Side = "Left"}
 
-local piss = Tab1:Label("Those Who Remain")
+local piss = Tab1:Label("Da Hood")
 
 local Tab2 = C:Section{Name = "Tab 2", Side = "Right"}
 -- // ============================================================ // --
@@ -261,7 +261,7 @@ Credits:Label("Myself - Emotional Support")
 -- // =Information================================================ // --
 local Information = S:Section{Name = "Information", Side = "Right"}
 
-Information:Label("Game - Blank")
+Information:Label("Game - Da Hood")
 local Uptime = Information:Label("Timer - 00:00:00")
 -- // ============================================================ // --
 while task.wait(1) do
