@@ -1,4 +1,14 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/dohmai/Mommy/main/Libarys/UI"))()
+-- // ============================================================ // --
+if Mommy == true then error("Mommy Has Already Been Executed\n Please Unload To Execute It Again",0) return end
+pcall(function() getgenv().Mommy  = true end)
+-- // ============================================================ // --
+if not game:IsLoaded() then game.Loaded:Wait() end
+-- // ============================================================ // --
+-- // =Variables================================================== // --
+local startTime = os.time()
+
+-- // ============================================================ // --
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/dohmai/Mommy/main/Libraries/UI"))()
 -- // ============================================================ // --
 -- // =Window===================================================== // --
 local main = library:Load{Name = " Mommy", SizeX = 495, SizeY = 620, Theme = "Default", Extension = "json", Folder = "NiggaHood"}
@@ -12,6 +22,9 @@ local S = main:Tab("Setting")
 -- // ============================================================ // --
 -- // =Section C================================================== // --
 local Tab1 = C:Section{Name = "Tab 1", Side = "Left"}
+
+local piss = Tab1:Label("Universal")
+
 local Tab2 = C:Section{Name = "Tab 2", Side = "Right"}
 -- // ============================================================ // --
 -- // =Section V================================================== // --
@@ -235,12 +248,22 @@ end}
 Main:Button{
 Name = "Unload",
     Callback  = function()
-        library:Unload()
+        library:Unload() getgenv().Mommy  = false
 end}
 -- // ============================================================ // --
 -- // =Credits==================================================== // --
 local Credits = S:Section{Name = "Credits", Side = "Right"}
 
-Credits:Label("1177#1111 - Everything")
+Credits:Label("Myself - Everything")
+Credits:Label("Myself - My Buddy")
 Credits:Label("Myself - Emotional Support")
 -- // ============================================================ // --
+-- // =Information================================================ // --
+local Information = S:Section{Name = "Information", Side = "Right"}
+
+Information:Label("Game - Blank")
+local Uptime = Information:Label("Timer - 00:00:00")
+-- // ============================================================ // --
+while task.wait(1) do
+Uptime:Set ("Timer - "..os.date("!%X", os.time() - startTime))
+end
